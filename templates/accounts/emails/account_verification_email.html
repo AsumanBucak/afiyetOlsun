@@ -1,0 +1,9 @@
+{% autoescape off %}
+
+Merhaba {{user.first_name}},
+
+Kaydınızı onaylamak için lütfen aşağıdaki bağlantıya tıklayın.
+http://{{domain}}{% url 'activate' uidb64=uid token=token %}
+
+
+{% endautoescape %}
