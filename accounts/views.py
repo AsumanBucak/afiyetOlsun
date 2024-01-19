@@ -9,6 +9,7 @@ from .models import User, UserProfile
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.exceptions import PermissionDenied
+from vendor.models import Vendor
 
 # Restrict the vendor from accessing the customer page
 def check_role_vendor(user):
@@ -65,7 +66,7 @@ def registerUser(request):
 def registerVendor(request):
     if request.user.is_authenticated:
         messages.warning(request, 'Zaten giriş yaptınız!')
-        return redirect('dashboard')
+        return redirect('myAccount')
     elif request.method == 'POST':
         # store the data and create user
         form = UserForm(request.POST)

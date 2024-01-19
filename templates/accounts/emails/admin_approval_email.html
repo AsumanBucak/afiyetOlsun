@@ -1,0 +1,13 @@
+{% autoescape off %}
+
+Merhaba {{user.first_name}},
+
+{% if is_approved %}
+Tebrikler! Restoranınız yönetici ekibimiz tarafından onaylandı. --Afiyet Olsun
+{% else %}
+Üzgünüz! Yemek menünüzü sitemizde yayınlamaya uygun değilsiniz. Daha fazla ayrıntı için lütfen support@afiyetolsun.com ile iletişime geçin. --Afiyet Olsun
+{% endif %}
+
+
+
+{% endautoescape %}

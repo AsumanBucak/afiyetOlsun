@@ -1,0 +1,14 @@
+<div class="user-account-nav user-account-sidebar">
+    <div class="user-nav-list">
+        <ul>
+            <li class="{% if '/vendorDashboard/' == request.path or '/vendor/' == request.path %}active{% endif %}"><a href="{% url 'vendorDashboard' %}"><i class="icon-dashboard3"></i>Restoran Paneli</a></li>
+            <li class="{% if 'profile' in request.path %}active{% endif %}"><a href="{% url 'vprofile' %}"><i class="icon-building"></i>Restoranım</a></li>
+            <li><a href="restaurant-menu-builder.html"><i class="icon-menu5"></i>Menu Oluştur</a></li>
+            <li><a href="restaurant-orders.html"><i class="icon-add_shopping_cart"></i>Siparişlerim</a></li>
+            <li><a href="restaurant-earnings.html"><i class="icon-money"></i>Kazancım</a></li>
+            <li><a href="restaurant-statement.html"><i class="icon-file-text22"></i>Rapor</a></li>
+            <li><a href="restaurant-change-password.html"><i class="icon-unlock-alt"></i>Parola Değiştir</a></li>
+            <li><a class="logout-btn" href="registration.html"><i class="icon-log-out"></i>Oturumı Kapat</a></li>
+        </ul>
+    </div>
+</div>

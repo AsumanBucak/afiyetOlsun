@@ -1,11 +1,131 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-
-<h4>Hoşgeldiniz {{user.username}}</h4>
-<p>This is a {{user.get_role}}</p>
-
 {% include 'includes/alerts.html' %}
 
+<!-- Main Section Start -->
+		<div class="main-section">
+            {% include 'includes/cover.html' %}
+			<div class="page-section account-header buyer-logged-in">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+							<!--Load the sidebar here-->
+                            {% include 'includes/v_sidebar.html' %}
+						</div>
+						<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+							<div class="user-dashboard loader-holder">
+								<div class="user-holder">
+                                    <h5 class="text-uppercase">Genel Bakış</h5>
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    Toplam Sipariş
+                                                </div>
+                                                <div class="card-body text-center">
+                                                    <a href="#"><h5 class="card-title">12345</h5></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    Toplam Kazanç
+                                                </div>
+                                                <div class="card-body text-center">
+                                                    <a href="#"><h5 class="card-title">800 TL</h5></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    Bu Ay
+                                                </div>
+                                                <div class="card-body text-center">
+                                                    <a href="#"><h5 class="card-title">165 TL</h5></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+									
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<div class="row">
+											<div class="element-title has-border right-filters-row">
+												<h5>Önceki Siparişler</h5>
+												<div class="right-filters row pull-right">
+													<div class="col-lg-6 col-md-6 col-xs-6">
+														<div class="input-field">
+															<select class="chosen-select-no-single">
+																<option selected="selected" value="">Sipariş Durumunu Seçiniz</option>
+																<option value="Processing">Aktif Sipariş</option>
+																<option value="Cancelled">İptal Edildi</option>
+																<option value="Completed">Tamamlandı</option>
+															</select>
+														</div>
+													</div>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+											<div class="user-orders-list">
+												<div class="responsive-table">
+													<ul class="table-generic">
+														<li class="order-heading-titles">
+															<div>Sipariş id</div>
+															<div>Tarih</div>
+															<div>Toplam Tutar</div>
+															<div>Maliyet</div>
+															<div>Teslim Alınan</div>
+															<div>Sipariş Durumu</div>
+														</li>
+														<li class="order-heading-titles">
+															<div><a href="#" data-toggle="modal" data-target="#order-det-22606">order-22606</a></div>
+															<div>Apr 9,2020</div>
+															<div>£ 38.99</div>
+															<div>£ 3.90</div>
+															<div>£ 35.09</div>
+															<div><span class="order-status" style="background-color: #047a06;">Tamamlandı</span></div>
+														</li>
+														
+														
+														
+														<li class="order-heading-titles">
+															<div><a href="#" data-toggle="modal" data-target="#order-det-22606">order-22583</a></div>
+															<div>Apr 9,2020</div>
+															<div>£ 26.22</div>
+															<div>£ 2.62</div>
+															<div>£ 23.60</div>
+															<div><span class="order-status" style="background-color: #1e73be;">Aktif Sipariş</span></div>
+														</li>
+														<li class="order-heading-titles">
+															<div><a href="#" data-toggle="modal" data-target="#order-det-22606">order-22493</a></div>
+															<div>Apr 2,2020</div>
+															<div>£ 28.24</div>
+															<div>£ 2.82</div>
+															<div>£ 25.42</div>
+															<div><span class="order-status" style="background-color: #047a06;">Tamamlandı</span></div>
+														</li>
+													</ul>
+
+												</div>												
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Main Section End -->
 
 {% endblock %}
