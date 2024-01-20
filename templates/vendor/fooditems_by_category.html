@@ -35,7 +35,15 @@
                                         <a href=""><p class="mb-0 font-weight-bold">{{ food }}</p>
                                         <small class="text-muted">{{food.description}}</small></a>
                                     </td>
-                                    <td><i class="fa fa-pencil"aria-hidden="true"></i> &nbsp; <i class="fa fa-trash text-danger"aria-hidden="true"></i></td>
+                                    <td>
+                                      {% if food.is_available %}
+                                      <span class="badge badge-success">Mevcut</span>
+                                      {% else %}
+                                      <span class="badge badge-danger">Mevcut Değil</span>
+                                      {% endif %}
+                                  </td>
+                                    <td><a href="{% url 'edit_food' food.id %}" style="color: unset;"><i class="fa fa-pencil" aria-hidden="true"></i></a> &nbsp; <a href="{% url 'delete_food' food.id %}" onclick="return confirm('Bu yemeği silmek istediğinizden emin misiniz?')"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a></td>
+                                  </tr>
                                   </tr>
                                 {% endfor %}
                                 </tbody>
