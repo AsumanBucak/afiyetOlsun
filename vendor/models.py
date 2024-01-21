@@ -36,4 +36,3 @@ class Vendor(models.Model):
         return super(Vendor, self).save(*args, **kwargs)
     
 
-
