@@ -20,8 +20,8 @@
 							<ul>
 								<li class="location-has-children choose-location">
 									<form action="#">
-										<input type="text" value="" name="location" placeholder="Teslimat adresinizi giriniz" autocomplete="off">
-										<span id="foodbakery_radius_location_open" class="foodbakery-radius-location"><i class="icon-target5"></i></span>
+										<input type="text" value="" name="alocation" id="alocation" placeholder="Teslimat adresinizi giriniz" autocomplete="off">
+										<span id="foodbakery_radius_location_open" class="foodbakery-radius-location" onclick="getLocation()"><i class="icon-target5"></i></span>
 									</form>
 									
 								</li>
@@ -54,3 +54,42 @@
 		</div>
 	</header>
 	<!-- Header End -->
+
+	<script>
+		var x = document.getElementById("alocation");
+		var current_alocation = sessionStorage.getItem("current_alocation")
+		if(current_alocation != ""){
+			x.value = current_alocation;
+		}
+		
+		function getLocation() {
+			if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showPosition);
+			} else { 
+			x.innerHTML = "Konum bu tarayıcı tarafından desteklenmiyor.";
+			}
+		}
+		
+		function showPosition(position) {
+			// var lat = position.coords.latitude
+			// var lng = position.coords.longitude
+	
+			var lat = '41.0423082'
+			var lng = '40.5799514'
+	
+			// hit AJAX request to googlemaps api endpoint and get the location data using those lat and lng
+			var GOOGLE_API_KEY = "{{ GOOGLE_API_KEY }}"
+			var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"+&key="+GOOGLE_API_KEY
+			
+			$.ajax({
+				url: url,
+				type: "GET",
+				success: function(response){
+					var current_alocation = response.results[0].formatted_address
+					x.value = current_alocation
+					sessionStorage.setItem("current_alocation", current_alocation)
+					window.location = '?lat='+lat+'&lng='+lng
+				}
+			})
+		}
+		</script>
